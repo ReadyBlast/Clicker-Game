@@ -12,8 +12,10 @@ class GameViewController: UIViewController {
     @IBOutlet weak var greenButton: UIButton!
     @IBOutlet weak var redButton: UIButton!
     @IBOutlet weak var purpleButton: UIButton!
+    @IBOutlet weak var timerLabel: UILabel!
     
     var timer: Timer?
+    var timeLeft: Int = 10
     var scoreCounter: Int = 0
 
     override func viewDidLoad() {
@@ -22,6 +24,8 @@ class GameViewController: UIViewController {
         // Do any additional setup after loading the view.
         buttonRandomizer()
         updateScoreLabel()
+        updateTimerLabel()
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerTickHandler), userInfo: nil, repeats: true)
     }
     
 
@@ -47,6 +51,10 @@ class GameViewController: UIViewController {
         scoreLabel.text = "Score: \(scoreCounter)"
     }
     
+    func updateTimerLabel() {
+        timerLabel.text = "Time left: \(timeLeft)"
+    }
+    
     func buttonRandomizer() {
         let buttonsArray: [UIButton] = [redButton, greenButton, purpleButton]
         let randomValue = Int.random(in: 0...buttonsArray.count - 1)
@@ -57,6 +65,18 @@ class GameViewController: UIViewController {
             } else {
                 item.isEnabled = false
             }
+        }
+    }
+    
+    @objc func timerTickHandler() {
+        timeLeft -= 1
+        updateTimerLabel()
+        
+        if timeLeft == 0 {
+            timer?.invalidate()
+            timer = nil
+            
+            performSegue(withIdentifier: "showEndgameScreen", sender: nil)
         }
     }
     

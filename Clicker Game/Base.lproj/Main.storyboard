@@ -55,17 +55,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMD-yE-prl">
-                                <rect key="frame" x="131" y="474" width="113" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Next">
-                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="y5w-pz-Pal" kind="show" identifier="showEndgameScreen" id="Yux-1d-ANn"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnC-V8-tmg">
                                 <rect key="frame" x="131" y="544" width="113" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -117,6 +106,13 @@
                                     <action selector="purpleButtonPressed:" destination="NIe-2S-upG" eventType="touchUpInside" id="tFZ-eW-NRs"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjk-8w-633">
+                                <rect key="frame" x="16" y="158" width="343" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QzA-QN-dHp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -127,6 +123,8 @@
                         <outlet property="purpleButton" destination="5G8-W0-IzD" id="Sqt-Ce-ENP"/>
                         <outlet property="redButton" destination="dzr-0b-SfI" id="9kz-bd-Nze"/>
                         <outlet property="scoreLabel" destination="Gno-Rj-McY" id="gXT-Gn-I5L"/>
+                        <outlet property="timerLabel" destination="Tjk-8w-633" id="yb8-MC-Tgf"/>
+                        <segue destination="y5w-pz-Pal" kind="show" identifier="showEndgameScreen" id="Ap1-m2-SZG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mpF-KE-IFm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
